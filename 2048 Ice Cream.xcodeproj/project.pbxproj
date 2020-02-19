@@ -13,6 +13,7 @@
 		92FBE5FF23FDA39800C30F9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FBE5FD23FDA39800C30F9C /* Main.storyboard */; };
 		92FBE60123FDA39D00C30F9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FBE60023FDA39D00C30F9C /* Assets.xcassets */; };
 		92FBE60423FDA39D00C30F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FBE60223FDA39D00C30F9C /* LaunchScreen.storyboard */; };
+		92FBE60C23FDAA9900C30F9C /* IceCream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FBE60B23FDAA9900C30F9C /* IceCream.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		92FBE60023FDA39D00C30F9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92FBE60323FDA39D00C30F9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92FBE60523FDA39D00C30F9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92FBE60B23FDAA9900C30F9C /* IceCream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCream.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				92FBE5F923FDA39800C30F9C /* SceneDelegate.swift */,
 				92FBE5FB23FDA39800C30F9C /* ViewController.swift */,
 				92FBE5FD23FDA39800C30F9C /* Main.storyboard */,
+				92FBE60B23FDAA9900C30F9C /* IceCream.swift */,
 				92FBE60023FDA39D00C30F9C /* Assets.xcassets */,
 				92FBE60223FDA39D00C30F9C /* LaunchScreen.storyboard */,
 				92FBE60523FDA39D00C30F9C /* Info.plist */,
@@ -140,6 +143,7 @@
 			files = (
 				92FBE5FC23FDA39800C30F9C /* ViewController.swift in Sources */,
 				92FBE5F823FDA39800C30F9C /* AppDelegate.swift in Sources */,
+				92FBE60C23FDAA9900C30F9C /* IceCream.swift in Sources */,
 				92FBE5FA23FDA39800C30F9C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
