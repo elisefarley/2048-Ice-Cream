@@ -77,8 +77,8 @@ class ViewController: UIViewController {
         }
         if availableLocations.count == 0
         {
-            print("out of moves")
             gameOver = true
+            return -1
         }
         return availableLocations.randomElement()!
     }
@@ -101,8 +101,8 @@ class ViewController: UIViewController {
     
     func play()
     {
+        let newIceCream = IceCream(location: randomLocation())
         if !gameOver{
-            let newIceCream = IceCream(location: randomLocation())
             locationsArray[newIceCream.location].image = UIImage(named: "\(newIceCream.type)")
             iceCreamArray.append(newIceCream)
             scoreNum += newIceCream.value
@@ -116,6 +116,28 @@ class ViewController: UIViewController {
                 }
             }
             max.text = maxIceCream.type
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Game Over!", message: nil, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Reset", style: .default){
+                (action) -> Void in self.resetGame()
+            }
+            alert.addAction(alertAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func resetGame()
+    {
+        scoreNum = 0
+        score.text = "0"
+        gameOver = false
+        max.text = ""
+        iceCreamArray.removeAll()
+        for location in locationsArray
+        {
+            location.image = UIImage(named: "basic")
         }
     }
 }
