@@ -16,5 +16,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func swipeRight(_ sender: Any) {
+    }
+    
+    @IBAction func swipeLeft(_ sender: Any) {
+    }
+    
+    @IBAction func swipeUp(_ sender: Any) {
+    }
+    
+    @IBAction func swipeDown(_ sender: Any) {
+    }
 }
 
