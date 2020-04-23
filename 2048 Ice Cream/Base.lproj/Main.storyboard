@@ -131,13 +131,6 @@
                                             <constraint firstAttribute="width" constant="82" id="cA4-ab-gtR"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e8f-ep-tKf">
-                                        <rect key="frame" x="192" y="101" width="82" height="82"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="82" id="f9V-Sj-s7d"/>
-                                            <constraint firstAttribute="width" constant="82" id="sQI-lo-Xgq"/>
-                                        </constraints>
-                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LXP-lu-vdn">
                                         <rect key="frame" x="8" y="191" width="82" height="82"/>
                                         <constraints>
@@ -181,6 +174,13 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="82" id="dcH-jE-XIa"/>
                                             <constraint firstAttribute="width" constant="82" id="tun-xr-HnL"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="82" id="zhX-a6-n91"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e8f-ep-tKf">
+                                        <rect key="frame" x="192" y="101" width="82" height="82"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="82" id="f9V-Sj-s7d"/>
+                                            <constraint firstAttribute="width" constant="82" id="sQI-lo-Xgq"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -258,6 +258,22 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="location0" destination="ZZL-9b-1s0" id="Q4K-fP-bLA"/>
+                        <outlet property="location1" destination="ZZL-9b-1s0" id="I0d-WQ-yRo"/>
+                        <outlet property="location10" destination="YTY-Zg-N47" id="yQ5-L9-nSU"/>
+                        <outlet property="location11" destination="sx0-to-30c" id="34C-Ye-QyN"/>
+                        <outlet property="location12" destination="KsS-wI-gg1" id="wNT-iR-9Dj"/>
+                        <outlet property="location13" destination="Va6-J4-60e" id="Jka-D4-OmL"/>
+                        <outlet property="location14" destination="7QQ-eK-hm9" id="Wfk-EL-ohA"/>
+                        <outlet property="location15" destination="2tz-kl-Rdd" id="Eu4-cI-DaL"/>
+                        <outlet property="location2" destination="hRD-sB-W1H" id="T2x-y7-OBF"/>
+                        <outlet property="location3" destination="fBo-Yr-7IL" id="D2j-3V-gjj"/>
+                        <outlet property="location4" destination="18w-wJ-Lb9" id="hvU-ki-aPL"/>
+                        <outlet property="location5" destination="MaG-Ts-aRQ" id="6Rt-XX-sAj"/>
+                        <outlet property="location6" destination="e8f-ep-tKf" id="6Sm-NV-H4W"/>
+                        <outlet property="location7" destination="biT-jY-J48" id="KJc-JV-vDL"/>
+                        <outlet property="location8" destination="LXP-lu-vdn" id="Noc-le-61G"/>
+                        <outlet property="location9" destination="6vp-Qb-JL0" id="5On-P2-fAc"/>
                         <outlet property="max" destination="zFY-oY-2MH" id="hv4-ev-0FR"/>
                         <outlet property="score" destination="Edd-AI-lRf" id="WxH-L1-1hH"/>
                     </connections>

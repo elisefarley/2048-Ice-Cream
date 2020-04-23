@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class IceCream
 {
@@ -16,9 +17,16 @@ class IceCream
     
     init(location: Int)
     {
-        value = 2
         self.location = location
         type = randomType()
+        if type == "vanilla"
+        {
+            value = 1
+        }
+        else
+        {
+            value = 2
+        }
     }
     
     func isEmpty() -> Bool
@@ -33,10 +41,9 @@ class IceCream
         {
             return "vanilla"
         }
-        if number == 2
+        else
         {
             return "chocolate"
         }
-        return ""
     }
 }
