@@ -31,9 +31,11 @@ class ViewController: UIViewController {
     var locationsArray = [UIImageView]()
     var iceCreamArray = [IceCream]()
     var gameOver = false
+    var scoreNum = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scoreNum = 0
         locationsArray.append(location0)
         locationsArray.append(location1)
         locationsArray.append(location2)
@@ -82,27 +84,39 @@ class ViewController: UIViewController {
     }
     
     @IBAction func swipeRight(_ sender: Any) {
-        let newIceCream = IceCream(location: randomLocation())
-        locationsArray[newIceCream.location].image = UIImage(named: "\(newIceCream.type)")
-        iceCreamArray.append(newIceCream)
+        play()
     }
     
     @IBAction func swipeLeft(_ sender: Any) {
-        let newIceCream = IceCream(location: randomLocation())
-        locationsArray[newIceCream.location].image = UIImage(named: "\(newIceCream.type)")
-        iceCreamArray.append(newIceCream)
+        play()
     }
     
     @IBAction func swipeUp(_ sender: Any) {
-        let newIceCream = IceCream(location: randomLocation())
-        locationsArray[newIceCream.location].image = UIImage(named: "\(newIceCream.type)")
-        iceCreamArray.append(newIceCream)
+        play()
     }
     
     @IBAction func swipeDown(_ sender: Any) {
-        let newIceCream = IceCream(location: randomLocation())
-        locationsArray[newIceCream.location].image = UIImage(named: "\(newIceCream.type)")
-        iceCreamArray.append(newIceCream)
+        play()
+    }
+    
+    func play()
+    {
+        if !gameOver{
+            let newIceCream = IceCream(location: randomLocation())
+            locationsArray[newIceCream.location].image = UIImage(named: "\(newIceCream.type)")
+            iceCreamArray.append(newIceCream)
+            scoreNum += newIceCream.value
+            score.text = "\(scoreNum)"
+            var maxIceCream = iceCreamArray[0]
+            for iceCream in iceCreamArray
+            {
+                if iceCream.value > maxIceCream.value
+                {
+                    maxIceCream = iceCream
+                }
+            }
+            max.text = maxIceCream.type
+        }
     }
 }
 
