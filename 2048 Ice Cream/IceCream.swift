@@ -15,34 +15,37 @@ class IceCream
     var value = 0
     var location: Int
     
-    init(location: Int)
-    {
+    init(location: Int){
         self.location = location
         type = randomType()
-        if type == "vanilla"
-        {
+        if type == "vanilla"{
             value = 1
         }
-        else
-        {
+        else{
             value = 2
         }
     }
     
-    func isEmpty() -> Bool
-    {
-        return value == 0
+    init(location: Int, value: Int){
+        self.location = location
+        self.value = value
+        if value == 2{
+            type = "chocolate"
+        }
+        else if value == 3{
+            type = "sprinkle"
+        }
+        else{
+            type = "sundae"
+        }
     }
     
-    func randomType() -> String
-    {
+    func randomType() -> String{
         let number = Int.random(in:1...2)
-        if number == 1
-        {
+        if number == 1{
             return "vanilla"
         }
-        else
-        {
+        else{
             return "chocolate"
         }
     }
