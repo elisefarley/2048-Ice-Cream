@@ -105,12 +105,12 @@ class ViewController: UIViewController {
         for row in allRows{
             if row.count == 2{
                 var index = 0
-                var tempIndex = 0
+                var testIndex = 0
                 for iceCream in iceCreamArray{
                     if iceCream.location == row[0]{
-                        index = tempIndex
+                        index = testIndex
                     }
-                    tempIndex += 1
+                    testIndex += 1
                 }
                 iceCreamArray[index].location = row[1]
             }
@@ -126,11 +126,9 @@ class ViewController: UIViewController {
                                 if iceCream.value == secondIceCream.value{
                                     iceCreamArray.remove(at: firstIndex)
                                     if firstIndex < secondIndex{
-                                        iceCreamArray.remove(at: secondIndex - 1)
+                                        secondIndex -= 1
                                     }
-                                    else{
-                                        iceCreamArray.remove(at: secondIndex)
-                                    }
+                                    iceCreamArray.remove(at: secondIndex)
                                     let newIceCream = IceCream(location: row[2], value: iceCream.value + 1)
                                     iceCreamArray.append(newIceCream)
                                     stop = true
@@ -176,7 +174,7 @@ class ViewController: UIViewController {
                                             if secondIndex < thirdIndex{
                                                 thirdIndex -= 1
                                             }
-                                                iceCreamArray.remove(at: thirdIndex)
+                                            iceCreamArray.remove(at: thirdIndex)
                                             let newIceCream = IceCream(location: row[3], value: secondIceCream.value + 1)
                                             iceCreamArray.append(newIceCream)
                                             if thirdIndex < firstIndex && secondIndex < firstIndex{
@@ -192,21 +190,18 @@ class ViewController: UIViewController {
                                         if !stop && secondIceCream.value == iceCream.value{
                                             iceCreamArray.remove(at: firstIndex)
                                             if firstIndex < secondIndex{
-                                                iceCreamArray.remove(at: secondIndex - 1)
+                                                secondIndex -= 1
                                             }
-                                            else{
-                                                iceCreamArray.remove(at: secondIndex)
+                                            iceCreamArray.remove(at: secondIndex)
+                                            if firstIndex < thirdIndex && secondIndex < thirdIndex{
+                                                thirdIndex -= 2
                                             }
-                                            if firstIndex < thirdIndex{
-                                                let newIceCream = IceCream(location: row[3] - 1, value: iceCream.value + 1)
-                                                iceCreamArray.append(newIceCream)
-                                                iceCreamArray[thirdIndex - 1].location = row[3]
+                                            else if firstIndex < thirdIndex || secondIndex < thirdIndex{
+                                                thirdIndex -= 1
                                             }
-                                            else{
-                                                let newIceCream = IceCream(location: row[3] - 1, value: iceCream.value + 1)
-                                                iceCreamArray.append(newIceCream)
-                                                iceCreamArray[thirdIndex].location = row[3]
-                                            }
+                                            let newIceCream = IceCream(location: row[3] - 1, value: iceCream.value + 1)
+                                            iceCreamArray.append(newIceCream)
+                                            iceCreamArray[thirdIndex].location = row[3]
                                             stop = true
                                             break
                                         }
