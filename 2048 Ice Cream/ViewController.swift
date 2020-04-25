@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     var locationsArray = [UIImageView]()
     var iceCreamArray = [IceCream]()
     var gameOver = false
+    var youWin = false
     var scoreNum = Int()
     
     override func viewDidLoad() {
@@ -1142,15 +1143,27 @@ class ViewController: UIViewController {
             if iceCream.value > maxIceCream.value{
                 maxIceCream = iceCream
             }
+            if iceCream.type == "rainbow"{
+                youWin = true
+            }
         }
         max.text = maxIceCream.type
         score.text = "\(scoreNum)"
+        if youWin{
+            let alert = UIAlertController(title: "You Win!", message: nil, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Reset", style: .default){
+                (action) -> Void in self.resetGame()
+            }
+            alert.addAction(alertAction)
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     func resetGame(){
         scoreNum = 0
         score.text = "0"
         gameOver = false
+        youWin = false
         max.text = ""
         iceCreamArray.removeAll()
         for location in locationsArray{
