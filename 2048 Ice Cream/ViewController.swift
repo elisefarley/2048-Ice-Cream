@@ -335,6 +335,263 @@ class ViewController: UIViewController {
     }
     
     @IBAction func swipeLeft(_ sender: Any) {
+        var row0 = [0]
+        var row1 = [4]
+        var row2 = [8]
+        var row3 = [12]
+        var allRows = [[Int]]()
+        
+        for iceCream in iceCreamArray{
+            if iceCream.location == 0 || iceCream.location == 1 || iceCream.location == 2 || iceCream.location == 3{
+                row0.append(iceCream.location)
+            }
+            else if iceCream.location == 4 || iceCream.location == 5 || iceCream.location == 6 || iceCream.location == 7{
+                row1.append(iceCream.location)
+            }
+            else if iceCream.location == 8 || iceCream.location == 9 || iceCream.location == 10 || iceCream.location == 11{
+                row2.append(iceCream.location)
+            }
+            else if iceCream.location == 12 || iceCream.location == 13 || iceCream.location == 14 || iceCream.location == 15{
+                row3.append(iceCream.location)
+            }
+            row0.sort()
+            row1.sort()
+            row2.sort()
+            row3.sort()
+            allRows = [row0, row1, row2, row3]
+        }
+        for row in allRows{
+            if row.count == 2{
+                var index = 0
+                var testIndex = 0
+                for iceCream in iceCreamArray{
+                    if iceCream.location == row[1]{
+                        index = testIndex
+                    }
+                    testIndex += 1
+                }
+                iceCreamArray[index].location = row[0]
+            }
+            if row.count == 3{
+                var stop = false
+                var firstIndex = 0
+                var secondIndex = 0
+                for iceCream in iceCreamArray{
+                    if iceCream.location == row[1]{
+                        secondIndex = 0
+                        for secondIceCream in iceCreamArray{
+                            if secondIceCream.location == row[2]{
+                                if iceCream.value == secondIceCream.value{
+                                    iceCreamArray.remove(at: firstIndex)
+                                    if firstIndex < secondIndex{
+                                        secondIndex -= 1
+                                    }
+                                    iceCreamArray.remove(at: secondIndex)
+                                    let newIceCream = IceCream(location: row[0], value: iceCream.value + 1)
+                                    iceCreamArray.append(newIceCream)
+                                    stop = true
+                                }
+                            }
+                            secondIndex += 1
+                        }
+                    }
+                    firstIndex += 1
+                }
+                if !stop{
+                    firstIndex = 0
+                    secondIndex = 0
+                    var firstIndexTest = 0
+                    var secondIndexTest = 0
+                    for iceCream in iceCreamArray{
+                        if iceCream.location == row[1]{
+                            firstIndex = firstIndexTest
+                        }
+                        else if iceCream.location == row[2]{
+                            secondIndex = secondIndexTest
+                        }
+                        firstIndexTest += 1
+                        secondIndexTest += 1
+                    }
+                    iceCreamArray[firstIndex].location = row[0]
+                    iceCreamArray[secondIndex].location = row[0] + 1
+                }
+            }
+            if row.count == 4{
+                var stop = false
+                var firstIndex = 0
+                for iceCream in iceCreamArray{
+                    if iceCream.location == row[1]{
+                        var secondIndex = 0
+                        for secondIceCream in iceCreamArray{
+                            if secondIceCream.location == row[2]{
+                                var thirdIndex = 0
+                                for thirdIceCream in iceCreamArray{
+                                    if thirdIceCream.location == row[3]{
+                                        if !stop && thirdIceCream.value == secondIceCream.value{
+                                            iceCreamArray.remove(at: secondIndex)
+                                            if secondIndex < thirdIndex{
+                                                thirdIndex -= 1
+                                            }
+                                            iceCreamArray.remove(at: thirdIndex)
+                                            let newIceCream = IceCream(location: row[0] + 1, value: secondIceCream.value + 1)
+                                            iceCreamArray.append(newIceCream)
+                                            if thirdIndex < firstIndex && secondIndex < firstIndex{
+                                                firstIndex -= 2
+                                            }
+                                            else if thirdIndex < firstIndex || secondIndex < firstIndex{
+                                                firstIndex -= 1
+                                            }
+                                            iceCreamArray[firstIndex].location = row[0]
+                                            stop = true
+                                            break
+                                        }
+                                        if !stop && secondIceCream.value == iceCream.value{
+                                            iceCreamArray.remove(at: firstIndex)
+                                            if firstIndex < secondIndex{
+                                                secondIndex -= 1
+                                            }
+                                            iceCreamArray.remove(at: secondIndex)
+                                            if firstIndex < thirdIndex && secondIndex < thirdIndex{
+                                                thirdIndex -= 2
+                                            }
+                                            else if firstIndex < thirdIndex || secondIndex < thirdIndex{
+                                                thirdIndex -= 1
+                                            }
+                                            let newIceCream = IceCream(location: row[0], value: iceCream.value + 1)
+                                            iceCreamArray.append(newIceCream)
+                                            iceCreamArray[thirdIndex].location = row[0] + 1
+                                            stop = true
+                                            break
+                                        }
+                                        if !stop{
+                                            iceCreamArray[thirdIndex].location = row[0] + 2
+                                            iceCreamArray[secondIndex].location = row[0] + 1
+                                            iceCreamArray[firstIndex].location = row[0]
+                                            stop = true
+                                            break
+                                        }
+                                    }
+                                    thirdIndex += 1
+                                }
+                            }
+                            secondIndex += 1
+                        }
+                    }
+                    firstIndex += 1
+                }
+            }
+            if row.count == 5{
+                var stop = false
+                var firstIndex = 0
+                for iceCream in iceCreamArray{
+                    if iceCream.location == row[1]{
+                        var secondIndex = 0
+                        for secondIceCream in iceCreamArray{
+                            if secondIceCream.location == row[2]{
+                                var thirdIndex = 0
+                                for thirdIceCream in iceCreamArray{
+                                    if thirdIceCream.location == row[3]{
+                                        var fourthIndex = 0
+                                        for fourthIceCream in iceCreamArray{
+                                            if fourthIceCream.location == row[4]{
+                                                if !stop && iceCream.value == secondIceCream.value{
+                                                    iceCreamArray.remove(at: firstIndex)
+                                                    if firstIndex < secondIndex{
+                                                        secondIndex -= 1
+                                                    }
+                                                    iceCreamArray.remove(at: secondIndex)
+                                                    let newIceCream = IceCream(location: row[0], value: iceCream.value + 1)
+                                                    iceCreamArray.append(newIceCream)
+                                                    if thirdIceCream.value == fourthIceCream.value{
+                                                        if firstIndex < thirdIndex && secondIndex < thirdIndex{
+                                                            thirdIndex -= 2
+                                                        }
+                                                        else if firstIndex < thirdIndex || secondIndex < thirdIndex{
+                                                            thirdIndex -= 1
+                                                        }
+                                                        iceCreamArray.remove(at: thirdIndex)
+                                                        if firstIndex < fourthIndex && secondIndex < fourthIndex && thirdIndex < fourthIndex{
+                                                            fourthIndex -= 3
+                                                        }
+                                                        else if (firstIndex < fourthIndex && secondIndex < fourthIndex) || (firstIndex < fourthIndex && thirdIndex < fourthIndex) || (secondIndex < fourthIndex && thirdIndex < fourthIndex){
+                                                            fourthIndex -= 2
+                                                        }
+                                                        else if firstIndex < fourthIndex || secondIndex < fourthIndex || thirdIndex < fourthIndex{
+                                                            fourthIndex -= 1
+                                                        }
+                                                        iceCreamArray.remove(at: fourthIndex)
+                                                        let newIceCream = IceCream(location: row[0] + 1, value: iceCream.value + 1)
+                                                        iceCreamArray.append(newIceCream)
+                                                    }
+                                                    else{
+                                                        if firstIndex < thirdIndex && secondIndex < thirdIndex{
+                                                            thirdIndex -= 2
+                                                        }
+                                                        else if firstIndex < thirdIndex || secondIndex < thirdIndex{
+                                                            thirdIndex -= 1
+                                                        }
+                                                        iceCreamArray[thirdIndex].location = row[0] + 1
+                                                        if firstIndex < fourthIndex && secondIndex < fourthIndex && thirdIndex < fourthIndex{
+                                                            fourthIndex -= 3
+                                                        }
+                                                        else if (firstIndex < fourthIndex && secondIndex < fourthIndex) || (secondIndex < fourthIndex && thirdIndex < fourthIndex) || (firstIndex < fourthIndex && thirdIndex < fourthIndex){
+                                                            fourthIndex -= 2
+                                                        }
+                                                        else if firstIndex < fourthIndex || secondIndex < fourthIndex || thirdIndex < fourthIndex{
+                                                            fourthIndex -= 1
+                                                        }
+                                                        iceCreamArray[fourthIndex].location = row[0] + 2
+                                                    }
+                                                    stop = true
+                                                    break
+                                                }
+                                                if !stop && thirdIceCream.value == secondIceCream.value{
+                                                    iceCreamArray[firstIndex].location = row[0]
+                                                    iceCreamArray.remove(at: secondIndex)
+                                                    if secondIndex < thirdIndex{
+                                                        thirdIndex -= 1
+                                                    }
+                                                    iceCreamArray.remove(at: thirdIndex)
+                                                    let newIceCream = IceCream(location: row[0] + 1, value: secondIceCream.value + 1)
+                                                    iceCreamArray.append(newIceCream)
+                                                    if secondIndex < fourthIndex && thirdIndex < fourthIndex{
+                                                        fourthIndex -= 2
+                                                    }
+                                                    else if secondIndex < fourthIndex || thirdIndex < fourthIndex{
+                                                        fourthIndex -= 1
+                                                    }
+                                                    iceCreamArray[fourthIndex].location = row[0] + 2
+                                                    stop = true
+                                                    break
+                                                }
+                                                if !stop && thirdIceCream.value == fourthIceCream.value
+                                                {
+                                                    iceCreamArray[firstIndex].location = row[0]
+                                                    iceCreamArray[secondIndex].location = row[0] + 1
+                                                    iceCreamArray.remove(at: thirdIndex)
+                                                    if thirdIndex < fourthIndex{
+                                                        fourthIndex -= 1
+                                                    }
+                                                    iceCreamArray.remove(at: fourthIndex)
+                                                    let newIceCream = IceCream(location: row[0] + 2, value: thirdIceCream.value + 1)
+                                                    iceCreamArray.append(newIceCream)
+                                                    stop = true
+                                                    break
+                                                }
+                                            }
+                                            fourthIndex += 1
+                                        }
+                                    }
+                                    thirdIndex += 1
+                                }
+                            }
+                            secondIndex += 1
+                        }
+                    }
+                    firstIndex += 1
+                }
+            }
+        }
         play()
     }
     
