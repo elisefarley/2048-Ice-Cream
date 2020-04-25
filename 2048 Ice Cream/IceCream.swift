@@ -35,8 +35,17 @@ class IceCream
         else if value == 3{
             type = "sprinkle"
         }
-        else{
+        else if value == 4{
+            type = "mint"
+        }
+        else if value == 5{
+            type = "blue"
+        }
+        else if value == 6{
             type = "sundae"
+        }
+        else{
+            type = "rainbow"
         }
     }
     
