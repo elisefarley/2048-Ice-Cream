@@ -935,7 +935,7 @@ class ViewController: UIViewController {
                         firstIndexTest += 1
                         secondIndexTest += 1
                     }
-                    iceCreamArray[firstIndex].location = row[2] - 16
+                    iceCreamArray[firstIndex].location = row[2] - 4
                     iceCreamArray[secondIndex].location = row[2]
                 }
             }
@@ -964,7 +964,7 @@ class ViewController: UIViewController {
                                             else if thirdIndex < firstIndex || secondIndex < firstIndex{
                                                 firstIndex -= 1
                                             }
-                                            iceCreamArray[firstIndex].location = row[3] - 16
+                                            iceCreamArray[firstIndex].location = row[3] - 8
                                             stop = true
                                             break
                                         }
@@ -980,7 +980,7 @@ class ViewController: UIViewController {
                                             else if firstIndex < thirdIndex || secondIndex < thirdIndex{
                                                 thirdIndex -= 1
                                             }
-                                            let newIceCream = IceCream(location: row[3] - 16, value: iceCream.value + 1)
+                                            let newIceCream = IceCream(location: row[3] - 4, value: iceCream.value + 1)
                                             iceCreamArray.append(newIceCream)
                                             iceCreamArray[thirdIndex].location = row[3]
                                             stop = true
