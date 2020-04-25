@@ -910,7 +910,7 @@ class ViewController: UIViewController {
                                         secondIndex -= 1
                                     }
                                     iceCreamArray.remove(at: secondIndex)
-                                    let newIceCream = IceCream(location: row[2], value: iceCream.value + 4)
+                                    let newIceCream = IceCream(location: row[2], value: iceCream.value + 1)
                                     iceCreamArray.append(newIceCream)
                                     stop = true
                                 }
